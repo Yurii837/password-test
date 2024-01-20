@@ -11,15 +11,10 @@ import {MatIconModule} from '@angular/material/icon';
 
 @NgModule({
   exports: [
-    MatTabsModule,
-    MatSlideToggleModule,
     FormsModule,
     ReactiveFormsModule,
     MatInputModule,
     MatFormFieldModule,
-    MatSelectModule,
-    MatTooltipModule,
-    MatDialogModule,
     MatIconModule
   ]
 })

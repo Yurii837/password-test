@@ -7,16 +7,16 @@
 
     &__indicator {
         display: flex;
+        border-radius: 3px;
 
         & > div {
             width: 34%;
             height: 3px;
-            border-radius: 3px;
             background-color: rgb(204, 204, 204);
 
-            background: linear-gradient(to left, rgb(204, 204, 204) 50%, 50%) right;
+            background: linear-gradient(to left, 50%, 50%) right;
             background-size: 200%;
-            transition: .2s ease-out;
+            transition: .3s ease-out;
         }
     }
     

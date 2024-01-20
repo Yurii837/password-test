@@ -20,11 +20,11 @@ export class AppComponent implements OnInit, OnDestroy {
   private sumbolsRegexp = /[^\w\d]/;
 
   private gray = 'rgb(204, 204, 204)';
-  private green = 'rgb(120, 234, 20)';
-  private warning = 'rgb(234, 185, 20)';
-  private danger = 'rgb(234, 120, 20)';
+  private green = 'rgb(120, 234, 0)';
+  private warning = 'rgb(255, 238, 0)';
+  private danger = 'rgb(234, 120, 0)';
 
-  private inputChangesSubscription = new Subscription()
+  private inputChangesSubscription = new Subscription();
 
   get hint() {
     return this.passwordInput.invalid
@@ -32,8 +32,7 @@ export class AppComponent implements OnInit, OnDestroy {
     : this.currentPasswordType === PType[1] 
       ? 'easy' 
       :  this.currentPasswordType === PType[2]
-        ? 'medium'
-        : 'strong'
+        ? 'medium' : 'strong';
   }
 
   ngOnInit(): void {
@@ -64,7 +63,7 @@ export class AppComponent implements OnInit, OnDestroy {
               : passwordType === PType[2] 
                 ? this.warning
                 : passwordType === PType[3]
-                  ? this.green: this.gray;
+                  ? this.green : this.gray;
 
           indicatorElements[1].nativeElement.style.backgroundColor = 
             less8 
@@ -72,13 +71,13 @@ export class AppComponent implements OnInit, OnDestroy {
               : passwordType === PType[2] 
                 ? this.warning
                 : passwordType === PType[3]
-                  ? this.green: this.gray
+                  ? this.green : this.gray
 
           indicatorElements[2].nativeElement.style.backgroundColor = 
             less8 
               ? this.danger 
               : passwordType === PType[3]
-                ? this.green: this.gray
+                ? this.green : this.gray
 
         } else {
           this.indicators.forEach(el => {
