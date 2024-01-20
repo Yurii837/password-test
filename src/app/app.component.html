@@ -13,8 +13,6 @@
     <mat-hint *ngIf="passwordInput.value">{{'Password is '+hint}}</mat-hint>
   </mat-form-field>
   <div class="password-section__indicator">
-    <div #indicator></div>
-    <div #indicator></div>
-    <div #indicator></div>
+    <div #indicator *ngFor="let e of [1,2,3]"></div>
   </div>
 </div>
