@@ -26,6 +26,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   private inputChangesSubscription = new Subscription();
 
+
+  inputPassword = new FormControl('initial input');
+
   get hint() {
     return this.passwordInput.invalid
     ? '8 sumbols require'
@@ -36,6 +39,11 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    this.inputPassword.valueChanges
+      .subscribe(val => {
+        console.log(val)
+      })
+
 
     this.inputChangesSubscription = this.passwordInput.valueChanges
       .subscribe(value => {
