@@ -1,5 +1,5 @@
-import { Component, forwardRef, HostBinding, Injector, Input } from '@angular/core';
-import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/forms';
+import { Component, forwardRef, Injector, Input } from '@angular/core';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
   selector: 'app-password-input',
@@ -14,16 +14,15 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl } from '@angular/for
 })
 export class PasswordInputComponent implements ControlValueAccessor {
 
+  @Input() hint: string = '';
+
   constructor(
     protected injector: Injector,
   ) { }
 
-  public value?: string;
-  ngControl?: NgControl | null;
+  public value?: string = '';
+  public hide: boolean = true;
 
-  get isValid() {
-    return this.ngControl?.valid
-  }
   
   onChange!: ((value: string) => void);
   onTouched!: (() => void);
@@ -32,21 +31,22 @@ export class PasswordInputComponent implements ControlValueAccessor {
     this.value = value;
   }
 
-  registerOnChange(fn: (value: string) => void){
+  public registerOnChange(fn: (value: string) => void){
   this.onChange = fn
   }
 
-  registerOnTouched(fn: () => void){
+  public registerOnTouched(fn: () => void){
   this.onTouched = fn
   }
 
-  ngAfterViewInit() {
-    this.ngControl = this.injector.get(NgControl, null);
-  
-    this.ngControl?.valueChanges
-      ?.subscribe(val => {
-        console.log(val, this.ngControl?.validator)
-      })
+  public toggleVisibility(): void {
+    this.hide = !this.hide;
+  }
+
+  public clearInput(): void {
+    this.value = '';
+    this.onChange('');
+    this.onTouched();
   }
 
 }

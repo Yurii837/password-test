@@ -5,11 +5,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 import { MaterialModule } from './Modules/material.module';
 import { PasswordInputComponent } from './Components/password-input/password-input.component';
+import { PasswordIndicatorsComponent } from './Components/password-indicators/password-indicators.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PasswordInputComponent
+    PasswordInputComponent,
+    PasswordIndicatorsComponent
   ],
   imports: [
     BrowserModule,
