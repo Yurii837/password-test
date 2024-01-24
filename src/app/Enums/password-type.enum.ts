@@ -1,5 +1,7 @@
 export enum PType {
-    'simple' = 1,
+    'default' = 0,
+    'simple',
     'medium',
-    'hard'
+    'strong',
+    'invalid'
 }
